@@ -231,7 +231,9 @@ const ProfessionalTemplate = ({ data, accentColor = '#1e3a8a' }) => {
               .map((group, idx) => (
                 <div key={group.id || idx} style={{ marginBottom: '2px' }}>
                   <strong style={{ color: '#111827' }}>{group.groupName}: </strong>
-                  <span style={{ color: '#374151' }}>{(group.skills || []).join(', ')}</span>
+                  <span style={{ color: '#374151' }}>
+                    {Array.isArray(group.skills) ? group.skills.join(', ') : (group.skills || '')}
+                  </span>
                 </div>
               ))}
           </div>

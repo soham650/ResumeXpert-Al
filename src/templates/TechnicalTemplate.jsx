@@ -139,7 +139,9 @@ const TechnicalTemplate = ({ data, accentColor = '#0f766e' }) => {
               .map((group, idx) => (
                 <div key={group.id || idx} style={{ marginBottom: '2.5px' }}>
                   <span style={{ fontWeight: 700, color: '#0f172a' }}>{group.groupName}: </span>
-                  <span style={{ color: '#334155' }}>{(group.skills || []).join(', ')}</span>
+                  <span style={{ color: '#334155' }}>
+                    {Array.isArray(group.skills) ? group.skills.join(', ') : (group.skills || '')}
+                  </span>
                 </div>
               ))}
           </div>
