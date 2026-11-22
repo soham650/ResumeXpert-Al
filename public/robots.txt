@@ -1,0 +1,27 @@
+# robots.txt for ResumeXpert AI (https://resumexpert.ai)
+# Protect candidate data privacy and indexing of user-specific resume sessions
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /features
+Allow: /pricing
+Allow: /help-center
+Allow: /contact-us
+Allow: /privacy-policy
+Allow: /terms
+Allow: /cookie-policy
+Allow: /ai-disclaimer
+Allow: /data-deletion
+
+# Disallow indexing of private builder sessions, user resumes, and sensitive endpoints
+Disallow: /builder/
+Disallow: /app/
+Disallow: /api/
+Disallow: /storage/
+Disallow: /private/
+Disallow: /*?token=*
+Disallow: /*?key=*
+
+Sitemap: https://resumexpert.ai/sitemap.xml
+

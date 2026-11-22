@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F8F7FF;
+    color: #77758B;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #17153A;
+    font-weight: 700;
+  }
+
+  /* Custom subtle purple scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F1F0FB;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C4B5FD;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B5CF6;
+  }
+}
+
+@layer components {
+  /* Gradients */
+  .gradient-hero {
+    background: linear-gradient(135deg, #6335F5 0%, #8B5CF6 60%, #A78BFA 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #6335F5 0%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 227, 240, 0.8);
+  }
+
+  .resume-page {
+    aspect-ratio: 210 / 297;
+    background: #FFFFFF;
+    box-shadow: 0 4px 24px rgba(23, 21, 58, 0.08), 0 1px 3px rgba(23, 21, 58, 0.04);
+  }
+
+  /* Reusable Interactive Component Tokens */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 active:scale-[0.98] text-white font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-glow disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-500/30;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-surface-50 active:scale-[0.98] text-heading font-medium text-sm border border-border-light hover:border-primary-300 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+  }
+
+  .btn-outline-dashed {
+    @apply w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl border-2 border-dashed border-border-light hover:border-primary-400 bg-white hover:bg-primary-50/40 text-primary-600 font-semibold text-sm transition-all duration-200 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+  }
+
+  .form-input-field {
+    @apply w-full rounded-xl border border-border-light bg-white px-4 py-3 text-sm text-heading placeholder:text-[#A09EB0] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-600 transition-all duration-200 hover:border-primary-300;
+  }
+}
+
+/* ====================================================
+   ATS RESUME PRINT MEDIA STYLES (High Fidelity PDF)
+   ==================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+
+  /* Hide entire application shell */
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #root > *:not(#print-resume-area) {
+    display: none !important;
+  }
+
+  /* Expose and format print container */
+  #print-resume-area {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #print-resume-area * {
+    visibility: visible !important;
+  }
+
+  /* Avoid page break inside items */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  p, li, .resume-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* ====================================================
+   3D GRAPHIC DESIGNER HERO ANIMATIONS
+   ==================================================== */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(4deg) rotateY(-5deg);
+  }
+  50% {
+    transform: translateY(-14px) rotateX(1deg) rotateY(-2deg);
+  }
+}
+
+@keyframes floatBadge1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatBadge2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseGlowOrb {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.12);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.animate-badge-float-1 {
+  animation: floatBadge1 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-badge-float-2 {
+  animation: floatBadge2 5s ease-in-out infinite 0.7s;
+  will-change: transform;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowOrb 5s ease-in-out infinite;
+}
+
+@keyframes aiLaserScan {
+  0% {
+    top: 2%;
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 2%;
+    opacity: 0.2;
+  }
+}
+
+

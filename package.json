@@ -1,0 +1,35 @@
+{
+  "name": "resumexpert-ai",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node test-phase3-store.js && node test-phase4-validation.js && node test-phase5-dynamic.js && node test-phase6-pdf.js && node test-phase7-analyzer.js && node test-phase8-qa.js && node test-phase9-supabase-auth.js && node test-phase10-docx-templates.js && node test-phase11-gemini-ai.js && node test-phase13-advanced-career.js && node test-e2e-journey-verification.js && node test-resume-upload-parser.js && node test-phase14-production-readiness.js && node test-auth-login-ui-and-guest.js && node test-enterprise-auth-and-single-session.js"
+  },
+  "dependencies": {
+    "@google/genai": "^3.0.0",
+    "@hookform/resolvers": "^7.0.3",
+    "@react-pdf/renderer": "^4.9.0",
+    "@supabase/supabase-js": "^2.119.0",
+    "docx": "^9.15.2",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.91.0",
+    "react-router-dom": "^6.28.0",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "vite": "^6.0.0"
+  }
+}
